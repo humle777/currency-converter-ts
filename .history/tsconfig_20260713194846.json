@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // В какой стандарт JS превращать наш код
+    "module": "NodeNext", // Современный тип модулей для Node.js
+    "moduleResolution": "NodeNext", // Как искать файлы при импорте
+    "esModuleInterop": true, // Плавная совместимость со старыми библиотеками
+    "forceConsistentCasingInFileNames": true, // Проверять регистр букв в названиях файлов
+    "strict": true, // Включить максимальные проверки на ошибки
+    "skipLibCheck": true // Пропускать проверку внутренних библиотек ради скорости
+  }
+}
