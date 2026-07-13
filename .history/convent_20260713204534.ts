@@ -9,7 +9,7 @@ function convertCurrency(amount: number, rate: number): string {
 }
 
 const myMoney = 250;
-const usdToEurRate = 44.95;
+const usdToEurRate = 6644.95;
 
 const result = convertCurrency(myMoney, usdToEurRate);
 
