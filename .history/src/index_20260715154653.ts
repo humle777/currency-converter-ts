@@ -9,13 +9,13 @@ async function startApp() {
   // inquirer.prompt принимает массив вопросов и ждет, пока пользователь на них ответит
   const answers = await inquirer.prompt([
     {
-      type: "select", // Тип 'list' создаст красивое меню с выбором стрелочками
+      type: "list", // Тип 'list' создаст красивое меню с выбором стрелочками
       name: "source", // Имя коробочки, куда сохранится ответ
       message: "Выберите исходную валюту:",
       choices: ["USD", "EUR", "GBP"], // Варианты на выбор
     },
     {
-      type: "select",
+      type: "list",
       name: "target",
       message: "Выберите целевую валюту:",
       choices: ["EUR", "USD", "GBP", "UAH"], // Добавим UAH для проверки нашей защиты!
