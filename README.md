@@ -1,41 +1,52 @@
-# 💱 Currency Converter CLI (TypeScript)
+# 💱 Interactive Currency Converter CLI
 
-Интерактивный консольный конвертер валют, написанный на **TypeScript** с использованием современной среды **Node.js** и сборщика **tsx**.
+Welcome to the **Currency Converter CLI**! This is a modern, interactive command-line application built from scratch using **TypeScript** and **Node.js**.
 
-Проект разработан в учебных целях для демонстрации навыков автоматизации тестирования (QA Automation) и уверенной работы со строгой типизацией, асинхронными сетевыми запросами и обработкой ошибок.
-
----
-
-## ✨ Ключевые особенности
-
-- **Интерактивный интерфейс:** Удобные консольные меню и валидация ввода пользователя с помощью библиотеки `inquirer`.
-- **Живые курсы валют:** Интеграция в реальном времени с бесплатным API `Frankfurter API` для получения актуальных мировых котировок.
-- **Устойчивость к сбоям (Resiliency):** Внедрены строгие защитные блоки (Guardrails) и конструкция `try-catch` на сетевом уровне и уровне запуска приложения, предотвращающие аварийное падение программы при отсутствии сети.
-- **Строгая типизация (TypeScript):** Полное отсутствие небезопасного типа `any`, использование четких интерфейсов (`FrankfurterResponse`) для сетевых контрактов.
+This project was designed and developed with a strong focus on clean architecture, modern asynchronous programming, and resilient error-handling patterns—essential pillars for writing robust automated tests.
 
 ---
 
-## 🛠️ Стек технологий
+## 🎯 Project Overview & Purpose
 
-- **Language:** TypeScript (strict mode)
-- **Runtime:** Node.js (ES Modules, NodeNext resolution)
-- **API Integration:** Fetch API (Frankfurter.dev)
-- **CLI Tooling:** Inquirer.js, tsx
+As a QA Automation Engineer, writing reliable test scripts requires a deep understanding of how applications communicate with APIs and handle runtime failures. This project serves as a practical playground to master:
+
+1. **Asynchronous JS/TS (`async/await`):** Managing non-blocking execution flows (essential for UI automation with Playwright).
+2. **API Integration & Validation:** Fetching dynamic data from a real-world third-party service (`Frankfurter API`) and parsing JSON payloads safely.
+3. **Resilience & Guardrails:** Implementing robust `try-catch` blocks and input validations to prevent unexpected application crashes.
 
 ---
 
-## 🚀 Как запустить проект локально
+## ✨ Key Features
 
-### 1. Клонируйте репозиторий
+- **Interactive Command Line:** Powered by `inquirer` to provide clean, selectable menus for choosing currencies instead of prone-to-error manual text input.
+- **Live Exchange Rates:** Fetching up-to-the-minute, real-world conversion rates on the fly.
+- **Zero `any` Strict Typings:** Fully strictly typed configuration (`strict: true` in `tsconfig.json`) using custom TS interfaces like `FrankfurterResponse` to define API contracts.
+- **Global Error Boundaries:** Protected execution flow ensuring that network disconnections, invalid currencies, or API errors are intercepted gracefully without spilling stack traces to the user.
 
-```bash
-git clone [https://github.com/humle777/currency-converter-ts.git](https://github.com/humle777/currency-converter-ts.git)
-cd currency-converter-ts
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Runtime Environment:** Node.js (configured with ES Modules / `NodeNext` resolution)
+- **Language:** TypeScript
+- **Dependencies:**
+  - `inquirer` — for rich CLI terminal prompts
+- **Dev Dependencies:**
+  - `tsx` — a lightning-fast TypeScript execute engine for Node.js
+  - `@types/node` & `@types/inquirer` — full type definitions for compilation safety
+
+### Project Structure
+
+```text
+currency-converter-ts/
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── README.md
+└── src/
+    ├── index.ts          # Orchestrator / CLI Entry Point
+    ├── api/
+    │   └── api.ts        # API Service Layer (Network requests & validation)
+    └── engine/
+        └── converter.ts  # Isolated Mathematical Core Engine
 ```
-
-git clone [https://github.com/humle777/currency-converter-ts.git](https://github.com/humle777/currency-converter-ts.git)
-cd currency-converter-ts
-
-npm install
-
-npm run convert
