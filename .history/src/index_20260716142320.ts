@@ -1,5 +1,4 @@
 // Импортируем inquirer для интерактивных вопросов в терминале
-
 import inquirer from "inquirer";
 import { convertCurrency } from "./engine/converter.js";
 import { getExchangeRate } from "./api/api.js";
@@ -57,8 +56,4 @@ async function startApp() {
 }
 
 // Запускаем наше приложение
-// Запускаем наше приложение и страхуемся от критических ошибок на самом верхнем уровне
-startApp().catch((err) => {
-  console.error("Критическая ошибка запуска приложения:", err);
-  process.exit(1); // Завершаем процесс Node.js со статус-кодом ошибки
-});
+startApp();

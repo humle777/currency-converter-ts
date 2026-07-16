@@ -1,5 +1,4 @@
 // Импортируем inquirer для интерактивных вопросов в терминале
-
 import inquirer from "inquirer";
 import { convertCurrency } from "./engine/converter.js";
 import { getExchangeRate } from "./api/api.js";

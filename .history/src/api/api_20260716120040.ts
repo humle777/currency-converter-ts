@@ -1,14 +1,3 @@
-// Описываем структуру ответа, которую присылает нам Frankfurter API.
-// Это защищает нас от использования несуществующих свойств.
-interface FrankfurterResponse {
-  amount: number;
-  base: string;
-  date: string;
-  rates: {
-    [currencyCode: string]: number; // Динамические ключи (например, "EUR": 0.92)
-  };
-}
-
 export async function getExchangeRate(
   from: string,
   to: string,
@@ -26,7 +15,7 @@ export async function getExchangeRate(
       return null; // Возвращаем пустоту вместо падения
     }
 
-    const data = (await response.json()) as FrankfurterResponse;
+    const data = (await response.json()) as any;
 
     // Проверяем, есть ли вообще нужная валюта в ответе сервера
     if (!data.rates || !data.rates[to]) {
